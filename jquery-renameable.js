@@ -10,6 +10,7 @@
       },
       init: function() {
         this.config = $.extend({}, this.defaults, this.options, this.metadata);
+        var elem = this.$elem;
         this.$elem.dblclick(function(){
           var inputField = $('<input type="text" />');
           var offset = $(this).offset();
@@ -20,7 +21,6 @@
         	inputField.offset(offset);
           inputField.data('rel-field', $(this));
           inputField.focus();
-          var elem = this.$elem;
           inputField.keypress(function (e) {
             var key = e.which;
             if(key == 13) {
