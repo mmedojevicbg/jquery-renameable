@@ -20,11 +20,13 @@
         	inputField.offset(offset);
           inputField.data('rel-field', $(this));
           inputField.focus();
+          var elem = this.$elem;
           inputField.keypress(function (e) {
             var key = e.which;
             if(key == 13) {
                 $(this).data('rel-field').text($(this).val());
                 $(this).remove();
+                elem.trigger('renamed');
                 return false;
             }
           });
